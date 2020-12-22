@@ -1,0 +1,1 @@
+insert into auto(placa, tipoCombustible,rentado) values (:placa, :tipoCombustible, :rentado)
