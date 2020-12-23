@@ -3,8 +3,6 @@ package com.ceiba.auto.controlador;
 import java.util.List;
 
 import com.ceiba.auto.consulta.ManejadorListarAutos;
-import com.ceiba.auto.consulta.ManejadorListarAutosDisponibles;
-import com.ceiba.auto.consulta.ManejadorListarAutosRentados;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,15 +18,9 @@ import io.swagger.annotations.ApiOperation;
 public class ConsultaControladorAuto {
 
     private final ManejadorListarAutos manejadorListarAutos;
-    private final ManejadorListarAutosDisponibles manejadorListarAutosDisponibles;
-    private final ManejadorListarAutosRentados manejadorListarAutosRentados;
 
-    public ConsultaControladorAuto(ManejadorListarAutos manejadorListarAutos,
-    									ManejadorListarAutosDisponibles manejadorListarAutosDisponibles,
-    									ManejadorListarAutosRentados manejadorListarAutosRentados) {
+    public ConsultaControladorAuto(ManejadorListarAutos manejadorListarAutos) {
         this.manejadorListarAutos = manejadorListarAutos;
-        this.manejadorListarAutosDisponibles = manejadorListarAutosDisponibles;
-        this.manejadorListarAutosRentados = manejadorListarAutosRentados;
     }
 
     @GetMapping
@@ -36,14 +28,5 @@ public class ConsultaControladorAuto {
     public List<DtoAuto> listar() {
         return this.manejadorListarAutos.ejecutar();
     }
-    @GetMapping
-    @ApiOperation("Listar Autos disponibles")
-    public List<DtoAuto> listarAutosDisponibles() {
-        return this.manejadorListarAutosDisponibles.ejecutar();
-    }
-    @GetMapping
-    @ApiOperation("Listar Autos disponibles")
-    public List<DtoAuto> listarAutosRentados() {
-        return this.manejadorListarAutosRentados.ejecutar();
-    }
+
 }

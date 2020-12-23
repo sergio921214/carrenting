@@ -17,8 +17,8 @@ public class AutoTestDataBuilder {
         rentado = false;
     }
 
-    public AutoTestDataBuilder conPlaca(String tipoCombustible) {
-        this.tipoCombustible = tipoCombustible;
+    public AutoTestDataBuilder conPlaca(String placa) {
+        this.placa = placa;
         return this;
     }
 

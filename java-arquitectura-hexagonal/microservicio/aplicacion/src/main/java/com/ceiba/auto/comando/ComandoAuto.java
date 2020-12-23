@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ComandoAuto{
 
-    private Long id;
+    private Long id;//OJO que del front no viene el ID
     private String placa;
     private String tipoCombustible;
     private Boolean rentado;
