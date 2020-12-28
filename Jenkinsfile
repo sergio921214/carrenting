@@ -40,7 +40,10 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-
+        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle clean'
+        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle test'
+        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle jacocoTestReport'
+        echo "------------>Unit Tests Finished<------------"
       }
     }
 
@@ -56,6 +59,8 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
+        sh 'gradle --b ./java-arquitectura-hexagonal/microservicio/build.gradle build -x test'
+        echo "------------>Build Finished<------------"
       }
     }  
   }
